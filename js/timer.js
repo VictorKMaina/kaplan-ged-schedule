@@ -22,9 +22,8 @@ let findTime = (ms) => {
     return `${hours}:${minutes}:${seconds}`
 }
 
-let currentSession = allSessions.filter((session, i) => {
-    if (checkLiveSession(session)) return session;
-})[0];
+let currentSession = allSessions.find((session) => checkLiveSession(session));
+let nextSession = allSessions.find((session) => session.startTime > today);
 
 sessionStatus = currentSession ? 'Current session' : 'Next session';
 sessionStatusField.innerHTML = sessionStatus;
@@ -34,6 +33,9 @@ setInterval(() => {
     let now = Date.now();
     if (currentSession) {
         let timeDiff = findTime((currentSession.endTime.valueOf() - now))
+        sessionTimerField.innerHTML = timeDiff;
+    } else {
+        let timeDiff = findTime((nextSession.startTime.valueOf() - now))
         sessionTimerField.innerHTML = timeDiff;
     }
 }, 1000)
