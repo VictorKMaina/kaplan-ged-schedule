@@ -9,18 +9,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Kaplan GED Live Schedule</h1>
+        <div class="header">
+            <h1>Kaplan GED Live Schedule</h1>
+            <div id="timer">
+                <div id="session-status">Next session in</div>
+                <div id='session-timer'>00:00:00</div>
+            </div>
+        </div>
         <table>
             <thead>
                 <th class="session-name">Session Name</th>
                 <th>Subject</th>
                 <th>Date</th>
-                <th>Start Time</th>
-                <th>End Time</th>
+                <th class="text-right">Start Time</th>
+                <th class="text-right">End Time</th>
             </thead>
             <tbody></tbody>
         </table>
     </div>
     <script src="js/index.js"></script>
+    <script src="js/timer.js"></script>
 </body>
 </html>

@@ -85,7 +85,6 @@ let createSession = (str) => {
     return classSession;
 }
 let allSessions = data.split('\n').map(line => createSession(line));
-console.log(allSessions.length)
 let tableBody = document.querySelector('table tbody');
 allSessions.forEach((session, i) => {
     let element = document.createElement('tr');
@@ -94,7 +93,7 @@ allSessions.forEach((session, i) => {
     <td class='session-name ${pastDateStyle}'><a link=''>${session.sessionName}</a></td>
     <td class='${pastDateStyle}'>${session.subject}</td>
     <td class='${pastDateStyle}'>${session.date}</td>
-    <td class='${pastDateStyle}'>${session.startTime.toLocaleTimeString('en-US', { timeStyle: 'short' })}</td>
-    <td class='${pastDateStyle}'>${session.endTime.toLocaleTimeString('en-US', { timeStyle: 'short' })}</td>`
+    <td class='${pastDateStyle} text-right'>${session.startTime.toLocaleTimeString('en-US', { timeStyle: 'short' })}</td>
+    <td class='${pastDateStyle} text-right'>${session.endTime.toLocaleTimeString('en-US', { timeStyle: 'short' })}</td>`
     tableBody.appendChild(element);
 })
