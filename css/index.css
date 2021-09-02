@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:wght@800&family=Open+Sans:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Open Sans';
+    background-color: #212529;
+    color: #CED4DA;
+    /* font-size: 15px; */
+}
+
+div.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 3rem;
+    margin: auto;
+    min-width: 800px;
+    max-width: 1100px;
+}
+
+table {
+    text-align: left;
+    width: 100%;
+    text-anchor: start;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+
+table th, table th.session-name {
+    color: #6C757D;
+    padding: 1rem;
+    vertical-align: center;
+    border-radius: 15px 15px 0 0;
+}
+
+table tbody td {
+    padding: 1rem;
+    vertical-align: top;
+}
+
+.session-name {
+    background-color: #1C1F22;
+    /* color: #F8F9FA; */
+    color: #BEC5CC;
+    cursor: pointer;
+}
+
+td.session-name {
+    transition: 300ms;
+}
+
+td.session-name:hover {
+    padding-left: 1.5rem;
+    font-style: italic;
+    border-left: 5px solid #bec5cc8e;
+}
+
+td.past-session {
+    color: #40474F;
+}
+
+h1 {
+    text-align: center;
+    color: #CED4DA;
+    font-family: Besley;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
