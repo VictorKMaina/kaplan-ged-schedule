@@ -99,3 +99,8 @@ div#header {
     justify-content: space-between;
     align-items: center;
 }
+
+tr#next-session {
+    background-color: #CED4DA;
+    color: #1C1F22;
+}

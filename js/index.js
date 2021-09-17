@@ -51,8 +51,20 @@ class ClassSession {
     }
 }
 
+let isToday = (date) => {
+    let midnight = new Date(); // 00:00:00 of today
+    let almostMidnight = new Date(); // 22:59:59 of today
+    midnight.setHours(0, 0, 0);
+    almostMidnight.setHours(23, 59, 59);
+
+    if (date >= midnight && date <= almostMidnight) return true;
+    else return false;
+}
+
+isToday()
+
 let isDatePast = (checkDate, today) => {
-    if(checkDate > today) return false;
+    if (checkDate > today) return false;
     return true;
 }
 
@@ -85,12 +97,14 @@ let createSession = (str) => {
     return classSession;
 }
 let allSessions = data.split('\n').map(line => createSession(line));
+let nextSession = allSessions.find((session) => session.startTime > today);
 let tableBody = document.querySelector('table tbody');
-allSessions.forEach((session, i) => {
+allSessions.forEach((session, i, arr) => {
     let element = document.createElement('tr');
     let pastDateStyle = isDatePast(session.endTime, today) ? 'past-session' : '';
+    if (session === nextSession) element.setAttribute('id', 'next-session')
     element.innerHTML = `
-    <td class='session-name ${pastDateStyle}'><a link=''>${session.sessionName}</a></td>
+    <td class='${nextSession !== session && 'session-name'} ${pastDateStyle}'><a link=''>${session.sessionName}</a></td>
     <td class='${pastDateStyle}'>${session.subject}</td>
     <td class='${pastDateStyle}'>${session.date}</td>
     <td class='${pastDateStyle} text-right'>${session.startTime.toLocaleTimeString('en-US', { timeStyle: 'short' })}</td>

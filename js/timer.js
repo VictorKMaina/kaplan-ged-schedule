@@ -23,7 +23,6 @@ let findTime = (ms) => {
 }
 
 let currentSession = allSessions.find((session) => checkLiveSession(session));
-let nextSession = allSessions.find((session) => session.startTime > today);
 
 sessionStatus = currentSession ? 'Current session' : 'Next session';
 sessionStatusField.innerHTML = sessionStatus;
